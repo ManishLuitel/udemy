@@ -407,7 +407,10 @@ for height in student_heights:
 number_of_students = 0
 for student in student_heights:
   number_of_students +=student
+  
 
+sum_of_total_height = round(total_height/number_of_students)
+print(sum_of_total_height)
 
 
 
