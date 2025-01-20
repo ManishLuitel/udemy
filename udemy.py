@@ -394,22 +394,38 @@ print(("New lines can be created with a backslash and n.")
 # else:
 #     print("You win")
 
-student_heights = input("Input the list of student heights").split()
-for n in range(0, len(student_heights)):
-  student_heights[n] = int(student_heights[n])
-print(student_heights)
+'''program to show the sum of total hight of students'''
 
-#avg height
-total_height = 0
-for height in student_heights:
-  total_height += height
 
-number_of_students = 0
-for student in student_heights:
-  number_of_students += 1
-  
+# student_heights = input("Input the list of student heights").split()
+# for n in range(0, len(student_heights)):
+#   student_heights[n] = int(student_heights[n])
+# print(student_heights)
 
-sum_of_total_height = round(total_height / number_of_students)
-print(sum_of_total_height)
+# #avg height
+# total_height = 0
+# for height in student_heights:
+#   total_height += height
+#   print(total_height)
+
+# number_of_students = 0
+# for student in student_heights:
+#   number_of_students += 1
+# sum_of_total_height = round(total_height / number_of_students)
+# print(sum_of_total_height)
+
+'''Program To find the sum of all even numbers from 1 to 100 '''
+# total = 0
+# for number in range(1,101):
+#   if number % 2==0:
+#     total += number
+#     print(total)
+
+
+# total = 0
+# for number in range(2,101,2):
+#   total += number
+# print(total)
+
 
 
