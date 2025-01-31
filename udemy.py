@@ -441,7 +441,8 @@ print(("New lines can be created with a backslash and n.")
   
 #   else:
 #    print(number)
-  ''' Program to generate the random password '''
+
+'''Program to generate the random password'''
 
 # import random 
 # letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
@@ -467,4 +468,51 @@ print(("New lines can be created with a backslash and n.")
 # for char in password:
 #   pasword += char
 # print(f"Your password is {pasword}")
+
+''' project  hangman game '''
+import random
+from wordlist import stages
+from wordlist import logo
+print(logo)
+from wordlist import word_list
+chosen_word = random.choice(word_list)
+lives = 6
+
+print(f'Pssst, the solution is {chosen_word}.')
+display =[]
+
+for letter in chosen_word:
+  display += "_"
+End_of_game = False
+while not End_of_game:
+    guess  = input("Guess the  letter:").lower() 
+    if guess in display:
+      print(f"You've already guessed {guess}")
+    
+    for position in range(len(chosen_word)):
+      letter = chosen_word[position]
+      # print(f"Current position: {position}\n Current letter:{guess}")
+      if letter == guess:
+        display[position] = letter
+       
+     
+    if guess not in chosen_word:
+      if guess in chosen_word:
+        print(f"You guess a letter :{guess}") 
+      else:
+        print(f"you guessed {guess}, that's not in the word.you lose a life.")
+      lives -= 1
+      if lives == 0:
+        End_of_game = True
+        print("You Lose")
+    print(f"{' '.join(display)}")
+     
+
+    
+    if "_" not in display:
+      End_of_game = True
+      print("You won")
+    print(stages[lives])
+
+
 
