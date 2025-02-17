@@ -470,49 +470,125 @@ print(("New lines can be created with a backslash and n.")
 # print(f"Your password is {pasword}")
 
 ''' project  hangman game '''
-import random
-from wordlist import stages
-from wordlist import logo
-print(logo)
-from wordlist import word_list
-chosen_word = random.choice(word_list)
-lives = 6
+# import random
+# from wordlist import stages
+# from wordlist import logo
+# print(logo)
+# from wordlist import word_list
+# chosen_word = random.choice(word_list)
+# lives = 6
 
-print(f'Pssst, the solution is {chosen_word}.')
-display =[]
+# print(f'Pssst, the solution is {chosen_word}.')
+# display =[]
 
-for letter in chosen_word:
-  display += "_"
-End_of_game = False
-while not End_of_game:
-    guess  = input("Guess the  letter:").lower() 
-    if guess in display:
-      print(f"You've already guessed {guess}")
+# for letter in chosen_word:
+#   display += "_"
+# End_of_game = False
+# while not End_of_game:
+#     guess  = input("Guess the  letter:").lower() 
+#     if guess in display:
+#       print(f"You've already guessed {guess}")
     
-    for position in range(len(chosen_word)):
-      letter = chosen_word[position]
-      # print(f"Current position: {position}\n Current letter:{guess}")
-      if letter == guess:
-        display[position] = letter
+#     for position in range(len(chosen_word)):
+#       letter = chosen_word[position]
+      
+#       if letter == guess:
+#         display[position] = letter
        
      
-    if guess not in chosen_word:
-      if guess in chosen_word:
-        print(f"You guess a letter :{guess}") 
-      else:
-        print(f"you guessed {guess}, that's not in the word.you lose a life.")
-      lives -= 1
-      if lives == 0:
-        End_of_game = True
-        print("You Lose")
-    print(f"{' '.join(display)}")
+#     if guess not in chosen_word:
+#       if guess in chosen_word:
+#         print(f"You guess a letter :{guess}") 
+#       else:
+#         print(f"you guessed {guess}, that's not in the word.you lose a life.")
+#       lives -= 1
+#       if lives == 0:
+#         End_of_game = True
+#         print("You Lose")
+#     print(f"{' '.join(display)}")
      
 
     
-    if "_" not in display:
-      End_of_game = True
-      print("You won")
-    print(stages[lives])
+#     if "_" not in display:
+#       End_of_game = True
+#       print("You won")
+#     print(stages[lives])
 
 
 
+
+
+''' function'''
+# def greeting():
+#   print("Hello")
+#   print("Hi")
+#   print("Namaste")
+
+
+# greeting()
+
+
+# def greeting(name, location):
+#   print(f"Hello {name}")
+#   print(f"what is it like in {location} ")
+ 
+
+
+# greeting(location = "ktm",name ="luffy")
+
+''' program that calculate how many cans of paint we need to buy for a given 
+surface area of wall.'''
+# import math
+# def paint_calc(height,width,cover):
+#     area = height * width
+#     numberofcans = math.ceil(area / cover)
+#     print(f"the number of cans we need to by is {numberofcans}")
+# test_h = int(input("Height of wall: "))
+# test_w = int(input("Width of wall: "))
+# coverage = 5
+
+    
+# paint_calc(height=test_h, width=test_w, cover=coverage)
+
+''' program to check the number is prime or not '''
+# def prime_checker(number):
+#   is_prime = True
+#   for i in range(2, number):
+#     if number%i == 0:
+#       is_prime = False
+#   if is_prime:
+#       print("It's a prime number.")
+#   else:
+#       print("It's not a prime number.")
+
+# n = int(input("Check this number:"))
+# prime_checker(number=n)
+
+
+'''  program caesar cipher encription algorithm '''
+
+alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+should_continue = True
+while should_continue:
+  direction = input("Type 'encode'to encrypt Type 'decode' to decrypt:\n")
+  Text = input("Enter the text:\n")
+  shift = int(input("Type the shift number:\n"))
+  def caeser(plain_text, shift_amount,direc):
+    cypher_text = ""
+    for letter in plain_text:
+        position = alphabet.index(letter)
+        if direc == "encode":            
+          new_position = (position + shift_amount)% 26
+          new_letter = alphabet[new_position] 
+          cypher_text += new_letter
+    
+        elif direc == "decode":
+          new_position = (position - shift_amount)% 26
+          new_letter = alphabet[new_position] 
+          cypher_text += new_letter
+    print(f"The {direc} message is {cypher_text}")
+  caeser(plain_text = Text,direc=direction,shift_amount=shift)
+  result = input("Type 'Yes' if you want to continue again , Otherwise type 'no'.\n")
+  if result == "no":
+    should_continue = False
+    print("Good bye")
