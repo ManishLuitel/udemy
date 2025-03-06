@@ -567,28 +567,114 @@ surface area of wall.'''
 
 '''  program caesar cipher encription algorithm '''
 
-alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
-should_continue = True
-while should_continue:
-  direction = input("Type 'encode'to encrypt Type 'decode' to decrypt:\n")
-  Text = input("Enter the text:\n")
-  shift = int(input("Type the shift number:\n"))
-  def caeser(plain_text, shift_amount,direc):
-    cypher_text = ""
-    for letter in plain_text:
-        position = alphabet.index(letter)
-        if direc == "encode":            
-          new_position = (position + shift_amount)% 26
-          new_letter = alphabet[new_position] 
-          cypher_text += new_letter
+# alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+# should_continue = True
+# while should_continue:
+#   direction = input("Type 'encode'to encrypt Type 'decode' to decrypt:\n")
+#   Text = input("Enter the text:\n")
+#   shift = int(input("Type the shift number:\n"))
+#   def caeser(plain_text, shift_amount,direc):
+#     cypher_text = ""
+#     for letter in plain_text:
+#         position = alphabet.index(letter)
+#         if direc == "encode":            
+#           new_position = (position + shift_amount)% 26
+#           new_letter = alphabet[new_position] 
+#           cypher_text += new_letter
     
-        elif direc == "decode":
-          new_position = (position - shift_amount)% 26
-          new_letter = alphabet[new_position] 
-          cypher_text += new_letter
-    print(f"The {direc} message is {cypher_text}")
-  caeser(plain_text = Text,direc=direction,shift_amount=shift)
-  result = input("Type 'Yes' if you want to continue again , Otherwise type 'no'.\n")
-  if result == "no":
-    should_continue = False
-    print("Good bye")
+#         elif direc == "decode":
+#           new_position = (position - shift_amount)% 26
+#           new_letter = alphabet[new_position] 
+#           cypher_text += new_letter
+#     print(f"The {direc} message is {cypher_text}")
+#   caeser(plain_text = Text,direc=direction,shift_amount=shift)
+#   result = input("Type 'Yes' if you want to continue again , Otherwise type 'no'.\n")
+#   if result == "no":
+#     should_continue = False
+#     print("Good bye")
+
+
+''' grading program '''
+
+# student_score = {
+#   "harry": 81,
+#   "Ram": 91,
+#   "luffy": 71,
+#   "nami": 61,
+#   "zoro": 99,
+# }
+# student_grade = {}
+# for student in student_score:
+#   score = student_score[student]
+#   print(score)
+#   if score >= 91 and score  <= 100:
+#     student_grade[student] = "outstanding"
+#   elif score >=81 :
+#     student_grade[student] = "excallent"
+#   elif score >=61 :
+#     student_grade[student] = "good"
+#   else:
+#     student_grade[student] = "fail"
+    
+
+
+ 
+  
+# print(student_grade)
+
+
+''' nesting dictionary in a disctionary'''
+# travel_log = {
+#   "france": {"cities_visited": ["paris","lille","daijon"],"total_visits":12},
+  
+# }
+
+
+
+''' Nesting dictionary in a list'''
+# travel_log = [
+#   {
+#     "country":"france",
+#     "cities_visited": ["paris","lille","daijon"],
+#     "total_visits": 12
+#   },
+#   {
+#     "country":"nepal",
+#     "cities_visited": ["ktm","pokhara","kavre"],
+#     "total_visits": 5
+#   }
+# ]
+
+# print(travel_log)
+
+''' program blind auction'''
+import os
+
+from wordlist import logo1
+print(logo1)
+bids = {}
+bidding_finished = False
+def find_highest_bidder(biding_record):
+  heighest_bid = 0
+  for bidder in biding_record:
+    bid_amount = biding_record[bidder]
+    if bid_amount > heighest_bid:
+      heighest_bid = bid_amount
+      winner = bidder
+  print(f"The winner is {winner} with a bid {heighest_bid}")
+def clear_console():
+    os.system('clear' if os.name == 'nt' else 'clear')
+
+  
+while not bidding_finished:
+  name = input("what is your name?")
+  price = int(input("what is your bid? $"))
+  bids[name] = price
+  should_continue = input("Are there any bidders? type 'yes' or 'no'.").lower()
+  if should_continue == "no":
+    bidding_finished = True
+    find_highest_bidder(bids)
+  elif should_continue == "yes":
+    clear_console()
+  
+
