@@ -192,30 +192,6 @@ print(("New lines can be created with a backslash and n.")
     
 ''' program love calculator '''
 
-# print("Welcome to the Love Calculator!")
-# name1 = input("What is your name?\n") 
-# name2 = input("What is your name?\n") 
-
-# name1 .lower()
-# T=name1 .count("t")
-# R=name1 .count("r")
-# U=name1 .count("u")
-# E=name1 .count("e")
-
-# name2 .lower()
-# L=name2 .count("l")
-# O=name2 .count("o")
-# V=name2 .count("v")
-# E=name2 .count("e")
-# Lovescore1 = str(T+R+U+E) 
-# Lovescore2 = str(L+O+V+E)
-# totalscore = (Lovescore1 + Lovescore2)
-# if int(totalscore) <=10 or int(totalscore) >= 90:
-#     print(f"Your score is {totalscore},you go like coke and mentos.")
-# elif int(totalscore) >=40 or int(totalscore) <= 50:
-#     print(f"Your score is {totalscore},you are alright together.")
-# else:
-#     print(f"your score is{totalscore}")
 
 # program simple tresure game
 # print('''*******************************************************************************
@@ -469,7 +445,7 @@ print(("New lines can be created with a backslash and n.")
 #   pasword += char
 # print(f"Your password is {pasword}")
 
-''' project  hangman game '''
+# ''' project  hangman game '''
 # import random
 # from wordlist import stages
 # from wordlist import logo
@@ -648,33 +624,122 @@ surface area of wall.'''
 # print(travel_log)
 
 ''' program blind auction'''
+# import os
+
+# from wordlist import logo1
+# print(logo1)
+# bids = {}
+# bidding_finished = False
+# def find_highest_bidder(biding_record):
+#   heighest_bid = 0
+#   for bidder in biding_record:
+#     bid_amount = biding_record[bidder]
+#     if bid_amount > heighest_bid:
+#       heighest_bid = bid_amount
+#       winner = bidder
+#   print(f"The winner is {winner} with a bid {heighest_bid}")
+# def clear_console():
+#     os.system('clear' if os.name == 'nt' else 'clear') 
+# while not bidding_finished:
+#   name = input("what is your name?")
+#   price = int(input("what is your bid? $"))
+#   bids[name] = price
+#   should_continue = input("Are there any bidders? type 'yes' or 'no'.").lower()
+#   if should_continue == "no":
+#     bidding_finished = True
+#     find_highest_bidder(bids)
+#   elif should_continue == "yes":
+#     clear_console() 
+  
+''' Functions with outputs'''
+# def format_name(f_name, l_name):
+#     if f_name == "" or l_name == "":
+#         return "you didn't provide valid inputs."
+#     format_f_name = (f_name.title()) 
+#     format_l_name = (l_name.title())
+#     return  f"{format_f_name}{format_l_name }"   
+ 
+# print(format_name(input("what is your first name ?"),input("what is your last name?"))) 
+  
+
+''' leap year'''
+
+
+# def is_leap(year):
+#   if year % 4 == 0:
+#     if year % 100 == 0:
+#       if year % 400 == 0:
+#         return True
+#       else:
+#         return False
+#     else:
+#       return True
+#   else:
+#     return False
+
+# def days_in_month(year , month):
+#   if month >12 or month < 1:
+#     return "Invalid Month"
+#   month_days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+#   if is_leap(year) and month == 2:
+#     return 29  
+#   return month_days[month -1] 
+  
+# year = int(input("Enter a year: "))
+# month = int(input("Enter a month: "))
+# days = days_in_month(year, month)
+# print(days)   
+
+
+''' program to cleate a calculator'''
 import os
+def add(n1, n2):
+  return n1 + n2
 
-from wordlist import logo1
-print(logo1)
-bids = {}
-bidding_finished = False
-def find_highest_bidder(biding_record):
-  heighest_bid = 0
-  for bidder in biding_record:
-    bid_amount = biding_record[bidder]
-    if bid_amount > heighest_bid:
-      heighest_bid = bid_amount
-      winner = bidder
-  print(f"The winner is {winner} with a bid {heighest_bid}")
-def clear_console():
-    os.system('clear' if os.name == 'nt' else 'clear')
+def subtract(n1, n2):
+  return n1 - n2
 
+def multiply(n1, n2):
+  return n1 * n2
+
+def divide(n1, n2):
+  return n1 / n2
+
+operations = {
+  "+": add,
+  "-": subtract,
+  "*": multiply,
+  "/": divide
+}
+
+num1 = int(input("What's the first number?: "))
+for symbol in operations: 
+  print(symbol)
   
-while not bidding_finished:
-  name = input("what is your name?")
-  price = int(input("what is your bid? $"))
-  bids[name] = price
-  should_continue = input("Are there any bidders? type 'yes' or 'no'.").lower()
-  if should_continue == "no":
-    bidding_finished = True
-    find_highest_bidder(bids)
-  elif should_continue == "yes":
-    clear_console()
-  
+should_continue = True
+
+
+while should_continue:
+    
+    operation_symbol = input("Pick an operation: ") 
+    num2 = int(input("What's the next number?: "))
+    calculation_function = operations[operation_symbol]
+    answer = calculation_function(num1, num2)
+
+    print(f"{num1} {operation_symbol} {num2} = {answer}")
+
+    should_continue = input(f"type 'y' to continue calculating with {answer}, or type 'n' to start new calculation:").lower()
+    def clear_console():
+     os.system('clear' if os.name == 'nt' else 'clear')
+    if should_continue == "y":
+      num1 = answer
+    elif should_continue == "n":
+      should_continue = False  
+      clear_console()
+
+
+
+    
+
+
 
