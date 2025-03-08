@@ -693,6 +693,9 @@ surface area of wall.'''
 
 ''' program to cleate a calculator'''
 import os
+from wordlist import calculator_logo
+
+
 def add(n1, n2):
   return n1 + n2
 
@@ -711,33 +714,34 @@ operations = {
   "*": multiply,
   "/": divide
 }
+def calculator():
+    print(calculator_logo)
+    num1 = float(input("What's the first number?: "))
+    for symbol in operations: 
+        print(symbol)
 
-num1 = int(input("What's the first number?: "))
-for symbol in operations: 
-  print(symbol)
-  
-should_continue = True
-
-
-while should_continue:
-    
-    operation_symbol = input("Pick an operation: ") 
-    num2 = int(input("What's the next number?: "))
-    calculation_function = operations[operation_symbol]
-    answer = calculation_function(num1, num2)
-
-    print(f"{num1} {operation_symbol} {num2} = {answer}")
-
-    should_continue = input(f"type 'y' to continue calculating with {answer}, or type 'n' to start new calculation:").lower()
-    def clear_console():
-     os.system('clear' if os.name == 'nt' else 'clear')
-    if should_continue == "y":
-      num1 = answer
-    elif should_continue == "n":
-      should_continue = False  
-      clear_console()
+    should_continue = True
 
 
+    while should_continue:
+
+        operation_symbol = input("Pick an operation: ") 
+        num2 = float(input("What's the next number?: "))
+        calculation_function = operations[operation_symbol]
+        answer = calculation_function(num1, num2)
+
+        print(f"{num1} {operation_symbol} {num2} = {answer}")
+
+        should_continue = input(f"type 'y' to continue calculating with {answer}, or type 'n' to start new calculation:").lower()
+        def clear_console():
+            os.system('clear' if os.name == 'nt' else 'clear')
+        if should_continue == "y":
+            num1 = answer
+        elif should_continue == "n":
+            should_continue = False  
+            clear_console()
+            calculator()
+calculator()
 
     
 
